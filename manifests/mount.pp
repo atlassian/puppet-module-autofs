@@ -7,7 +7,7 @@ define autofs::mount (
   $options    = undef,
   $mapfile    = undef,
   $order      = undef,
-  $mapfile_options = undef
+  $mapfile_options = undef,
   $mapfile_mount = $title,
 ) {
 
