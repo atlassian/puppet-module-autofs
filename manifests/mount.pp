@@ -8,6 +8,7 @@ define autofs::mount (
   $mapfile    = undef,
   $order      = undef,
   $mapfile_options = undef
+  $mapfile_mount = $title,
 ) {
 
   include ::autofs
@@ -34,7 +35,7 @@ define autofs::mount (
     concat::fragment { "autofs::mount master ${mapfile_real}:${mountpoint}":
       ensure  => $ensure,
       target  => $autofs::params::master,
-      content => "${title} ${mapfile_real} ${mapfile_options} \n",
+      content => "${mapfile_mount} ${mapfile_real} ${mapfile_options} \n",
     }
 
   }
